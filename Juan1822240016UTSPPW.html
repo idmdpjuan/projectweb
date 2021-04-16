@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otomotif Car</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="#" class="logo"><img src="logo.png"></a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">What's New</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Speed to Top<br><span>Lotomotif</span></h2>
+                <p>Kami ada dan berusaha untuk sebisa mungkin memastikan setiap orang nyaman dalam kendaraan saat perjalanan yang indah</p>
+                <a href="#">Learn More</a>
+        </div>
+        <div class="imgBox">
+            <img src="AquaG.png" class="otomotif">
+        </div>
+    </div>
+    <ul class="thumb">
+        <li><img src="camryHybrid.png" onclick="imgSlider('camryHybrid.png');changeCircleColor('#854513')"></li>
+        <li><img src="auris.png" onclick="imgSlider('auris.png');changeCircleColor('#E6E6FA')"></li>
+        <li><img src="Konai.png" onclick="imgSlider('Konai.png');changeCircleColor('#696969')"></li>
+    </ul>
+    <ul class="sci">
+        <li><a href="#"><img src="call.png"></a></li>
+    </ul>
+    </section>
+
+    <script type="text/javascript">
+        function imgSlider(anything){
+            document.querySelector('.otomotif').src = anything;
+        }
+
+        function changeCircleColor(color){
+            const circle = document.querySelector('.circle');
+            circle.style.background = color;
+        }
+    </script>
+
+<div class="contact">
+    <h3 class="section-title">Hubungi Kami</h3>
+    <form action="" method="post">
+        <p>Nama (wajib diisi) *</p>
+        <input type="text" name="nama" id="nama" placeholder="Masukkan nama anda">
+        <p>Email (wajib diisi) *</p>
+        <input type="email" name="email" id="email" placeholder="Masukkan email anda">
+        <p>Pesan (wajib diisi) *</p>
+        <textarea placeholder="Masukkan pesan anda"></textarea>
+        <p class="txt-red">* Bidang wajib diisi</p>
+        </select>
+        <button type="submit" value="Kirim" class="contact-submit">Kirim</button>
+        
+    </form>
+</div>
+</main>
+
+<footer>
+<div class="footer-logo">
+    <img src="logo.png" >
+</div>
+<div class="footer-nav">
+    <ul>
+        <li>Tentang</li>
+        <li>Pelajaran</li>
+        <li>Hubungi Kami</li>
+    </ul>
+</div>
+</footer>
+<script>
+    let Lotomotif = [];
+    const simpan = () => {
+        let nama = document.getElementById("nama").value;
+        let email = document.getElementById("email").value;
+        let pesan = document.getElementById("pesan").value;
+
+        let ltf =  { nama: nama, email: email, pesan: pesan };
+        let lotomotiflama = localStorage.getItem("Lotomotif");
+        if(lotomotiflama != null){
+            Lotomotif = JSON.parse(lotomotiflama);
+        }
+
+        Lotomotif.push(ltf);
+        localStorage.setItem("Lotomotif", JSON.stringify(Lotomotif));
+    }
+</script>
+</body>
+</html>
